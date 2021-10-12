@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { ReactNode, useEffect, useMemo, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import socketIOClient from "socket.io-client";
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import { Message } from "@chatapp/shared";
@@ -47,17 +47,28 @@ const Home: NextPage = () => {
 
   const initialValues: Message = { content: "", sender: "" };
   return (
-    <div>
-      <h1 className="text-xl">Hello World</h1>
+    <div className="flex justify-center">
+      <div className="mx-auto">
+        {msgList}
 
-      {msgList}
-
-      <Formik initialValues={initialValues} onSubmit={handleSend}>
-        <Form>
-          <Field name="content" placeholder="Type Message here..." />
-          <button type="submit">Send</button>
-        </Form>
-      </Formik>
+        <div className="fixed left-0 bottom-0 w-full p-3 bg-gray-200">
+          <Formik initialValues={initialValues} onSubmit={handleSend}>
+            <Form className="flex justify-between">
+              <Field
+                className="px-5 flex-grow text-xl"
+                name="content"
+                placeholder="Type Message here..."
+              />
+              <button
+                className="mx-5 py-3 px-5 bg-gray-300 hover:bg-gray-400"
+                type="submit"
+              >
+                Send
+              </button>
+            </Form>
+          </Formik>
+        </div>
+      </div>
     </div>
   );
 };
