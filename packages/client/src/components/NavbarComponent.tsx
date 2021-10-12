@@ -9,12 +9,12 @@ const NavbarComponent: FunctionComponent<NavbarComponentProps> = () => {
       <div className="flex justify-between">
         <span className="inline-block">
           <Link href="/">
-            <h1>Simple Chatapp</h1>
+            <h1 className="select-none transform hover:scale-105">Simple Chatapp</h1>
           </Link>
         </span>
         <span className="inline-block">
           <Link href="/about">
-            <h1>About</h1>
+            <h1 className="select-none transform hover:scale-105">About</h1>
           </Link>
         </span>
       </div>

@@ -11,7 +11,6 @@ const LayoutComponent: FunctionComponent<LayoutComponentProps> = ({
       <header>
         <NavbarComponent />
       </header>
-      <br />
       <main>{children}</main>
     </>
   );

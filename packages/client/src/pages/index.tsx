@@ -12,32 +12,44 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     socket.on("message", (text: Message) => {
-      console.log("Received", text);
       setmsgs((prev) => {
         return [...prev, text];
       });
     });
   }, []);
 
-  let msgList;
-  if (msgs.length > 0) {
-    msgList = (
-      <ul>
-        {msgs
-          .map<ReactNode>((msg, i) => {
-            return <li key={i}>{msg.content}</li>;
-          })
-          .reduce((prev, current) => (
-            <>
-              {prev}
-              {current}
-            </>
-          ))}
-      </ul>
-    );
-  } else {
-    msgList = <p>Chat history empty</p>;
-  }
+  const msgList = (
+    <div className="text-xl">
+      {msgs?.length > 0 ? (
+        <ul>
+          {msgs
+            .map<ReactNode>((msg, i) => {
+              return (
+                <li key={i}>
+                  <div
+                    className={`flex ${
+                      msg.senderID === socket.id
+                        ? "justify-end"
+                        : "justify-start"
+                    }`}
+                  >
+                    {msg.content}
+                  </div>
+                </li>
+              );
+            })
+            .reduce((prev, current) => (
+              <>
+                {prev}
+                {current}
+              </>
+            ))}
+        </ul>
+      ) : (
+        <p>Chat history empty</p>
+      )}
+    </div>
+  );
 
   const handleSend = (msg: Message, { resetForm }: FormikHelpers<Message>) => {
     console.log("Sending Message", msg);
@@ -45,22 +57,24 @@ const Home: NextPage = () => {
     resetForm();
   };
 
-  const initialValues: Message = { content: "", sender: "" };
+  const initialValues: Message = {
+    content: "",
+  };
   return (
-    <div className="flex justify-center">
-      <div className="mx-auto">
+    <div className="bg-gray-100 flex justify-center">
+      <div className="container">
         {msgList}
 
         <div className="fixed left-0 bottom-0 w-full p-3 bg-gray-200">
           <Formik initialValues={initialValues} onSubmit={handleSend}>
             <Form className="flex justify-between">
               <Field
-                className="px-5 flex-grow text-xl"
+                className="px-5 flex-grow text-xl rounded"
                 name="content"
                 placeholder="Type Message here..."
               />
               <button
-                className="mx-5 py-3 px-5 bg-gray-300 hover:bg-gray-400"
+                className="mx-5 py-3 px-5 rounded bg-gray-300 hover:bg-gray-400"
                 type="submit"
               >
                 Send

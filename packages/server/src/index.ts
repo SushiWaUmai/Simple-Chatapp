@@ -15,8 +15,9 @@ io.on("connection", (socket) => {
   console.log("client connected");
 
   socket.on("message", (message: Message) => {
-    io.emit("message", message);
-    console.log("Emit Messge", message);
+    const msgToSend: Message = { ...message, senderID: socket.id };
+    io.emit("message", msgToSend);
+    console.log("Emit Messge", msgToSend);
   });
 });
 
