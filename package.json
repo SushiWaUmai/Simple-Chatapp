@@ -2,6 +2,10 @@
   "name": "simple-chatapp",
   "version": "1.0.0",
   "license": "MIT",
+  "scripts": {
+    "new-version": "lerna version --conventional-commits -y",
+    "diff": "lerna diff"
+  },
   "private": true,
   "workspaces": [
     "packages/*"
