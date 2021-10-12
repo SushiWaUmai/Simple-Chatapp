@@ -1,6 +1,6 @@
 {
   "name": "@chatapp/server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,7 @@
     "kill": "kill-port 4000"
   },
   "dependencies": {
-    "@chatapp/shared": "1.0.0",
+    "@chatapp/shared": "^1.0.1",
     "express": "^4.17.1",
     "socket.io": "^4.2.0"
   },
