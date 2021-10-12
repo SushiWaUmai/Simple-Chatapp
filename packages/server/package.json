@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "yarn kill && tsc && node dist",
+    "dev": "nodemon --exec yarn start",
+    "kill": "kill-port 4000"
+  },
   "dependencies": {
     "@chatapp/shared": "1.0.0",
     "express": "^4.17.1",
@@ -11,6 +16,7 @@
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/node": "^16.10.3",
+    "kill-port": "^1.6.1",
     "nodemon": "^2.0.13",
     "typescript": "^4.4.3"
   }
