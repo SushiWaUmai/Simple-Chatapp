@@ -2,6 +2,7 @@
   "name": "@chatapp/server",
   "version": "1.0.1",
   "main": "index.js",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "start": "yarn kill && tsc && node dist",
