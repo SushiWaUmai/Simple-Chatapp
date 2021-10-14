@@ -35,7 +35,9 @@ const MessageListComponent: FunctionComponent<MessageListComponentProps> = ({
                         : "justify-start"
                     }`}
                   >
-                    {msg.content}
+                    <div className="py-1 px-3 my-1 bg-green-300 rounded">
+                      {msg.content}
+                    </div>
                   </div>
                 </li>
               );
