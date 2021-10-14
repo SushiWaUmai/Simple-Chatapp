@@ -2,8 +2,10 @@ import { Message } from "@chatapp/shared";
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import cors from "cors";
 
 const app = express();
+app.use(cors({ origin: ["http://localhost:3000"] }));
 app.use(express.json());
 
 const httpServer = createServer(app);
