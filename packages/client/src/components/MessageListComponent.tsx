@@ -1,24 +1,22 @@
 import { Message } from "@chatapp/shared";
-import { FunctionComponent, ReactNode, useEffect, useState } from "react";
+import {
+  FunctionComponent,
+  ReactNode,
+  useEffect,
+  useState,
+} from "react";
 import { Socket } from "socket.io-client";
 import { DefaultEventsMap } from "socket.io-client/build/typed-events";
 
 interface MessageListComponentProps {
   socket: Socket<DefaultEventsMap, DefaultEventsMap>;
+  msgs: Message[];
 }
 
 const MessageListComponent: FunctionComponent<MessageListComponentProps> = ({
-  socket,
+  socket, msgs,
 }) => {
-  const [msgs, setmsgs] = useState<Message[]>([]);
 
-  useEffect(() => {
-    socket.on("message", (text: Message) => {
-      setmsgs((prev) => {
-        return [...prev, text];
-      });
-    });
-  }, []);
 
   return (
     <div className="text-xl">

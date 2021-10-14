@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import socketIOClient from "socket.io-client";
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import { Message } from "@chatapp/shared";
@@ -11,6 +11,22 @@ export const ENDPOINT = "http://localhost:4000";
 
 const Home: NextPage = () => {
   const [socket, setSocket] = useState(socketIOClient(ENDPOINT));
+
+  const msgRef = useRef<HTMLDivElement>(null);
+  const [msgs, setmsgs] = useState<Message[]>([]);
+
+  useEffect(() => {
+    socket.on("message", (text: Message) => {
+      setmsgs((prev) => {
+        return [...prev, text];
+      });
+
+      if (msgRef && msgRef.current) {
+        msgRef.current.style.scrollBehavior = "smooth";
+        msgRef.current.scrollTop = msgRef.current.scrollHeight;
+      }
+    });
+  }, []);
 
   const handleSend = (msg: Message, { resetForm }: FormikHelpers<Message>) => {
     if (msg.content) {
@@ -35,9 +51,12 @@ const Home: NextPage = () => {
         </header>
         <br />
 
-        <main className="flex-grow flex justify-center overflow-y-auto">
+        <main
+          className="flex-grow flex justify-center overflow-y-auto"
+          ref={msgRef}
+        >
           <div className="container">
-            <MessageListComponent socket={socket} />
+            <MessageListComponent msgs={msgs} socket={socket} />
           </div>
         </main>
 
