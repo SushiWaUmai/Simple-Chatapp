@@ -5,8 +5,9 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "yarn kill && tsc && node dist",
+    "start": "yarn kill && yarn build && node dist",
     "dev": "nodemon --exec yarn start",
+    "build": "tsc",
     "kill": "kill-port 4000"
   },
   "dependencies": {
