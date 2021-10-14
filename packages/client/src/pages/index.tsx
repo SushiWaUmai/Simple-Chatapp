@@ -5,6 +5,7 @@ import { Field, Form, Formik, FormikHelpers } from "formik";
 import { Message } from "@chatapp/shared";
 import MessageListComponent from "../components/MessageListComponent";
 import Head from "next/head";
+import NavbarComponent from "../components/NavbarComponent";
 
 export const ENDPOINT = "http://localhost:4000";
 
@@ -12,9 +13,11 @@ const Home: NextPage = () => {
   const [socket, setSocket] = useState(socketIOClient(ENDPOINT));
 
   const handleSend = (msg: Message, { resetForm }: FormikHelpers<Message>) => {
-    console.log("Sending Message", msg);
-    socket.emit("message", msg);
-    resetForm();
+    if (msg.content) {
+      console.log("Sending Message", msg);
+      socket.emit("message", msg);
+      resetForm();
+    }
   };
 
   const initialValues: Message = {
@@ -25,11 +28,21 @@ const Home: NextPage = () => {
       <Head>
         <title>Home | Simple Chatapp</title>
       </Head>
-      <div className="bg-gray-100 flex justify-center">
-        <div className="container">
-          <MessageListComponent socket={socket} />
 
-          <div className="fixed left-0 bottom-0 w-full p-3 bg-gray-200">
+      <div className="h-full flex flex-col">
+        <header>
+          <NavbarComponent />
+        </header>
+        <br />
+
+        <main className="flex-grow flex justify-center overflow-y-auto">
+          <div className="container">
+            <MessageListComponent socket={socket} />
+          </div>
+        </main>
+
+        <footer>
+          <div className="p-3 bg-gray-200">
             <Formik initialValues={initialValues} onSubmit={handleSend}>
               <Form className="flex justify-between">
                 <Field
@@ -47,7 +60,7 @@ const Home: NextPage = () => {
               </Form>
             </Formik>
           </div>
-        </div>
+        </footer>
       </div>
     </>
   );

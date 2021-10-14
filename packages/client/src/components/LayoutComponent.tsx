@@ -14,10 +14,7 @@ const LayoutComponent: FunctionComponent<LayoutComponentProps> = ({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta lang="en" />
       </Head>
-      <header>
-        <NavbarComponent />
-      </header>
-      <main>{children}</main>
+      <div className="absolute w-full h-full">{children}</div>
     </>
   );
 };
