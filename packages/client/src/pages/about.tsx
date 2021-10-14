@@ -14,9 +14,9 @@ const AboutPage: NextPage = () => {
         </header>
         <br />
 
-        <main className="flex-grow container mx-auto">
+        <main className="flex-grow container px-2 lg:mx-auto">
           <div>
-            <p>This project was made with</p>
+            <p className="text-bold">This project was made with</p>
             <ul className="list-disc mx-5">
               <li>Socket.io</li>
               <li>Express</li>

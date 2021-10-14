@@ -20,11 +20,6 @@ const Home: NextPage = () => {
       setmsgs((prev) => {
         return [...prev, text];
       });
-
-      if (msgRef && msgRef.current) {
-        msgRef.current.style.scrollBehavior = "smooth";
-        msgRef.current.scrollTop = msgRef.current.scrollHeight;
-      }
     });
   }, []);
 
@@ -33,6 +28,11 @@ const Home: NextPage = () => {
       console.log("Sending Message", msg);
       socket.emit("message", msg);
       resetForm();
+    }
+
+    if (msgRef && msgRef.current) {
+      msgRef.current.style.scrollBehavior = "smooth";
+      msgRef.current.scrollTop = msgRef.current.scrollHeight;
     }
   };
 
@@ -52,7 +52,7 @@ const Home: NextPage = () => {
         <br />
 
         <main
-          className="flex-grow flex justify-center overflow-y-auto"
+          className="flex-grow flex justify-center overflow-y-auto px-2"
           ref={msgRef}
         >
           <div className="container">
