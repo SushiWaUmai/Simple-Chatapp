@@ -3,6 +3,8 @@
 
 Simple Chatapp created with Express, Next.js and sockets
 
+NOTE: This is a side project for learning the web.
+
 ### Getting started
 Run the following command on the root
 ```bash
