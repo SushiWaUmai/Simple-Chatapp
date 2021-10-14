@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/SushiWaUmai/Simple-Chatapp/compare/v1.2.0...v1.3.0) (2021-10-14)
+
+
+### Features
+
+* **client:** :lipstick: scrollable chat ([b892d31](https://github.com/SushiWaUmai/Simple-Chatapp/commit/b892d31871d53a38d4e7490aed87b5079216e63d))
+* **client:** :lipstick: update frotnend about page and scrolling ([ce93918](https://github.com/SushiWaUmai/Simple-Chatapp/commit/ce939189634714b3698c015be3f90e3d3e97b612))
+
+
+
+
+
 # [1.2.0](https://github.com/SushiWaUmai/Simple-Chatapp/compare/v1.1.0...v1.2.0) (2021-10-14)
 
 
