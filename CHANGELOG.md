@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/SushiWaUmai/Simple-Chatapp/compare/v1.1.0...v1.2.0) (2021-10-14)
+
+
+### Features
+
+* :lipstick: add css to messages ([56a3e52](https://github.com/SushiWaUmai/Simple-Chatapp/commit/56a3e5267105bce9a7be91932a57e0cb739249d9))
+* :lipstick: update navbar with shadow and btn effect ([957f696](https://github.com/SushiWaUmai/Simple-Chatapp/commit/957f696e686f536a2506f85402f577a1b4e4e8a9))
+
+
+
+
+
 # [1.1.0](https://github.com/SushiWaUmai/Simple-Chatapp/compare/v1.0.2...v1.1.0) (2021-10-14)
 
 
