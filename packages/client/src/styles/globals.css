@@ -4,3 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind screens;
+
+@layer components {
+  .btn {
+    @apply cursor-pointer transform hover:scale-105 transition-all duration-200 ease-out
+  }
+}
