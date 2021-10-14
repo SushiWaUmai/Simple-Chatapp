@@ -4,7 +4,10 @@
   "license": "MIT",
   "scripts": {
     "new-version": "lerna version --conventional-commits -y",
-    "diff": "lerna diff"
+    "diff": "lerna diff",
+    "server": "yarn workspace @chatapp/server",
+    "client": "yarn workspace @chatapp/client",
+    "shared": "yarn workspace @chatapp/shared"
   },
   "private": true,
   "workspaces": [
