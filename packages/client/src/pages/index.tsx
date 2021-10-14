@@ -4,6 +4,7 @@ import socketIOClient from "socket.io-client";
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import { Message } from "@chatapp/shared";
 import MessageListComponent from "../components/MessageListComponent";
+import Head from "next/head";
 
 export const ENDPOINT = "http://localhost:4000";
 
@@ -20,30 +21,35 @@ const Home: NextPage = () => {
     content: "",
   };
   return (
-    <div className="bg-gray-100 flex justify-center">
-      <div className="container">
-        <MessageListComponent socket={socket} />
+    <>
+      <Head>
+        <title>Home | Simple Chatapp</title>
+      </Head>
+      <div className="bg-gray-100 flex justify-center">
+        <div className="container">
+          <MessageListComponent socket={socket} />
 
-        <div className="fixed left-0 bottom-0 w-full p-3 bg-gray-200">
-          <Formik initialValues={initialValues} onSubmit={handleSend}>
-            <Form className="flex justify-between">
-              <Field
-                className="px-5 flex-grow text-xl rounded"
-                name="content"
-                placeholder="Type Message here..."
-                autoComplete="off"
-              />
-              <button
-                className="mx-5 py-3 px-5 rounded bg-gray-300 hover:bg-gray-400"
-                type="submit"
-              >
-                Send
-              </button>
-            </Form>
-          </Formik>
+          <div className="fixed left-0 bottom-0 w-full p-3 bg-gray-200">
+            <Formik initialValues={initialValues} onSubmit={handleSend}>
+              <Form className="flex justify-between">
+                <Field
+                  className="px-5 flex-grow text-xl rounded"
+                  name="content"
+                  placeholder="Type Message here..."
+                  autoComplete="off"
+                />
+                <button
+                  className="mx-5 py-3 px-5 rounded bg-gray-300 hover:bg-gray-400"
+                  type="submit"
+                >
+                  Send
+                </button>
+              </Form>
+            </Formik>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
