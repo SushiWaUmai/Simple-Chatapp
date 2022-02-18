@@ -11,17 +11,17 @@
     "kill": "kill-port 4000"
   },
   "dependencies": {
-    "@chatapp/shared": "^1.0.2",
+    "@chatapp/shared": "workspace:^1.0.2",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "socket.io": "^4.2.0"
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
-    "@types/node": "^16.10.3",
+    "@types/node": "^17.0.18",
     "kill-port": "^1.6.1",
-    "nodemon": "^2.0.13",
-    "typescript": "^4.4.3"
+    "nodemon": "^2.0.15",
+    "typescript": "^4.5.5"
   }
 }

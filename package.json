@@ -16,6 +16,6 @@
   ],
   "devDependencies": {
     "lerna": "^4.0.0",
-    "yarn": "^1.22.15"
+    "yarn": "^1.22.17"
   }
 }
