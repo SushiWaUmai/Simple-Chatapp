@@ -8,18 +8,12 @@ NOTE: This is a side project for learning the web.
 ### Getting started
 Run the following command on the root
 ```bash
-yarn
+pnpm i
 ```
 
 Run following commands on different terminals to start developing
 ```bash
-yarn client dev
-```
-```bash
-yarn server dev
-```
-```bash
-yarn shared dev
+pnpm lerna dev
 ```
 
 ### License
